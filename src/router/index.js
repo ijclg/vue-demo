@@ -33,7 +33,7 @@ export const constantRoutes = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import('@/views/manage/redirect/index-tree.vue')
+        component: () => import('@/views/manage/redirect/index.vue')
       }
     ]
   },
