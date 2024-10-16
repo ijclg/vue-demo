@@ -157,6 +157,11 @@ export const dynamicRoutes = [
         meta: { title: '修改生成配置', activeMenu: '/tool/gen' }
       }
     ]
+  },
+  {
+    path: '/search',
+    component: () => import('@/views/search/index'),
+    hidden: true
   }
 ]
 

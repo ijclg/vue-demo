@@ -92,7 +92,7 @@
 </template>
 
 <script setup name="AuthUser">
-import selectUser from "./selectUser";
+import selectUser from "./selectUser.vue";
 import { allocatedUserList, authUserCancel, authUserCancelAll } from "@/api/system/role";
 
 const route = useRoute();
