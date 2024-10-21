@@ -23,7 +23,13 @@
 </template>
 
 <script setup>
+import {onMounted} from "vue";
+
 const props = defineProps({
+  cacheName:{
+    type:String,
+    default:""
+  },
   showSearch: {
     type: Boolean,
     default: true,
@@ -74,8 +80,27 @@ function dataChange(data) {
     const key = props.columns[item].key;
     props.columns[item].visible = !data.includes(key);
   }
+  console.info("this.cacheName save")
+  console.info(props.cacheName)
+  if (props.cacheName){
+    localStorage.setItem(props.cacheName,JSON.stringify(props.columns));
+  }
 }
 
+onMounted(()=>{
+  // @TODO need to optimue
+  // console.info("right bar init")
+  // const cacheColumns = localStorage.getItem(props.cacheName);
+  // if(cacheColumns && JSON.parse(cacheColumns) && JSON.parse(cacheColumns).length){
+  //   console.info("update value from cache")
+  //   var columns=JSON.parse(cacheColumns)
+  //   for (let item in columns) {
+  //     if (columns[item].visible === false) {
+  //       value.value.push(parseInt(item));
+  //     }
+  //   }
+  // }
+})
 // 打开显隐列dialog
 function showColumn() {
   open.value = true;

@@ -417,71 +417,18 @@
             >导出
             </el-button>
           </el-col>
-          <right-toolbar v-model:showSearch="showSearch" @queryTable="getList" ></right-toolbar>
+          <right-toolbar v-model:showSearch="showSearch" @queryTable="getList"  :columns="columns"  :cacheName=cacheName></right-toolbar>
         </el-row>
 
         <el-table style="width: 100%"  v-loading="loading" :data="resourceList" @selection-change="handleSelectionChange" >
           <el-table-column fixed type="selection" width="45" align="center" />
-          <el-table-column label="记录唯一标识符" align="center" prop="id"/>
-          <el-table-column label="入藏号" align="center" prop="ut"/>
-          <el-table-column label="文件名" align="center" prop="fn"/>
-          <el-table-column label="版本号" align="center" prop="vr"/>
-          <el-table-column label="类型标识符" align="center" prop="pt"/>
-          <el-table-column label="作者" align="center" prop="au"/>
-          <el-table-column label="作者全名" align="center" prop="af"/>
-          <el-table-column label="书籍作者" align="center" prop="ba"/>
-          <el-table-column label="团体作者" align="center" prop="ca"/>
-          <el-table-column label="书籍团体作者" align="center" prop="gp"/>
-          <el-table-column label="编者" align="center" prop="be"/>
-          <el-table-column label="文献标题" align="center" prop="ti"/>
-          <el-table-column label="出版物名称" align="center" prop="so"/>
-          <el-table-column label="丛书标题" align="center" prop="se"/>
-          <el-table-column label="丛书副标题" align="center" prop="bs"/>
-          <el-table-column label="语种" align="center" prop="la"/>
-          <el-table-column label="文献类型" align="center" prop="dt"/>
-          <el-table-column label="会议标题" align="center" prop="ct"/>
-          <el-table-column label="会议日期" align="center" prop="cy"/>
-          <el-table-column label="会议地点" align="center" prop="cl"/>
-          <el-table-column label="会议赞助方" align="center" prop="sp"/>
-          <el-table-column label="会议主办方" align="center" prop="ho"/>
-          <el-table-column label="作者关键词" align="center" prop="de"/>
-          <el-table-column label="扩展关键词" align="center" prop="kId"/>
-          <el-table-column label="摘要" align="center" prop="ab"/>
-          <el-table-column label="作者地址" align="center" prop="c1"/>
-          <el-table-column label="通讯作者地址" align="center" prop="rp"/>
-          <el-table-column label="电子邮件地址" align="center" prop="em"/>
-          <el-table-column label="基金资助机构和授权号" align="center" prop="fu"/>
-          <el-table-column label="基金资助正文" align="center" prop="fx"/>
-          <el-table-column label="引用的参考文献" align="center" prop="cr"/>
-          <el-table-column label="引用的参考文献数" align="center" prop="nr"/>
-          <el-table-column label="Web of Science被引频次计数" align="center" prop="tc"/>
-          <el-table-column label="被引频次总数" align="center" prop="z9"/>
-          <el-table-column label="出版商" align="center" prop="pu"/>
-          <el-table-column label="出版商所在城市" align="center" prop="pi"/>
-          <el-table-column label="出版商地址" align="center" prop="pa"/>
-          <el-table-column label="国际标准期刊号 (ISSN)" align="center" prop="sn"/>
-          <el-table-column label="国际标准书号 (ISBN)" align="center" prop="bn"/>
-          <el-table-column label="来源文献名称缩写" align="center" prop="j9"/>
-          <el-table-column label="ISO来源文献名称缩写" align="center" prop="ji"/>
-          <el-table-column label="出版日期" align="center" prop="pd"/>
-          <el-table-column label="出版年" align="center" prop="py"/>
-          <el-table-column label="卷" align="center" prop="vl"/>
-          <el-table-column label="期" align="center" prop="kIs"/>
-          <el-table-column label="特刊" align="center" prop="si"/>
-          <el-table-column label="子辑" align="center" prop="pn"/>
-          <el-table-column label="增刊" align="center" prop="su"/>
-          <el-table-column label="开始页" align="center" prop="bp"/>
-          <el-table-column label="结束页" align="center" prop="ep"/>
-          <el-table-column label="文献编号" align="center" prop="ar"/>
-          <el-table-column label="数字对象标识符 (DOI)" align="center" prop="di"/>
-          <el-table-column label="书籍的数字对象标识符 (DOI)" align="center" prop="d2"/>
-          <el-table-column label="页数" align="center" prop="pg"/>
-          <el-table-column label="章节数 (Book Citation Index)" align="center" prop="p2"/>
-          <el-table-column label="Web of Science类别" align="center" prop="wc"/>
-          <el-table-column label="学科类别" align="center" prop="sc"/>
-          <el-table-column label="文献传递号" align="center" prop="ga"/>
-          <el-table-column label="记录结束" align="center" prop="er"/>
-          <el-table-column label="文件结束" align="center" prop="ef"/>
+          <el-table-column
+            v-for="(column,index) in visibleColumns"
+            :key="index"
+            :label="column.label"
+            align="center"
+            :prop="column.prop"
+          ></el-table-column>
           <el-table-column fixed="right" width="80"  label="操作" align="center" class-name="small-padding fixed-width">
             <template #default="scope">
               <el-tooltip content="修改" placement="top">
@@ -501,6 +448,86 @@
               <!--          >删除</el-tooltip>-->
             </template>
           </el-table-column>
+<!--          <el-table-column fixed type="selection" width="45" align="center" />-->
+<!--          <el-table-column label="记录唯一标识符" align="center" prop="id"/>-->
+<!--          <el-table-column label="入藏号" align="center" prop="ut"/>-->
+<!--          <el-table-column label="文件名" align="center" prop="fn"/>-->
+<!--          <el-table-column label="版本号" align="center" prop="vr"/>-->
+<!--          <el-table-column label="类型标识符" align="center" prop="pt"/>-->
+<!--          <el-table-column label="作者" align="center" prop="au"/>-->
+<!--          <el-table-column label="作者全名" align="center" prop="af"/>-->
+<!--          <el-table-column label="书籍作者" align="center" prop="ba"/>-->
+<!--          <el-table-column label="团体作者" align="center" prop="ca"/>-->
+<!--          <el-table-column label="书籍团体作者" align="center" prop="gp"/>-->
+<!--          <el-table-column label="编者" align="center" prop="be"/>-->
+<!--          <el-table-column label="文献标题" align="center" prop="ti"/>-->
+<!--          <el-table-column label="出版物名称" align="center" prop="so"/>-->
+<!--          <el-table-column label="丛书标题" align="center" prop="se"/>-->
+<!--          <el-table-column label="丛书副标题" align="center" prop="bs"/>-->
+<!--          <el-table-column label="语种" align="center" prop="la"/>-->
+<!--          <el-table-column label="文献类型" align="center" prop="dt"/>-->
+<!--          <el-table-column label="会议标题" align="center" prop="ct"/>-->
+<!--          <el-table-column label="会议日期" align="center" prop="cy"/>-->
+<!--          <el-table-column label="会议地点" align="center" prop="cl"/>-->
+<!--          <el-table-column label="会议赞助方" align="center" prop="sp"/>-->
+<!--          <el-table-column label="会议主办方" align="center" prop="ho"/>-->
+<!--          <el-table-column label="作者关键词" align="center" prop="de"/>-->
+<!--          <el-table-column label="扩展关键词" align="center" prop="kId"/>-->
+<!--          <el-table-column label="摘要" align="center" prop="ab"/>-->
+<!--          <el-table-column label="作者地址" align="center" prop="c1"/>-->
+<!--          <el-table-column label="通讯作者地址" align="center" prop="rp"/>-->
+<!--          <el-table-column label="电子邮件地址" align="center" prop="em"/>-->
+<!--          <el-table-column label="基金资助机构和授权号" align="center" prop="fu"/>-->
+<!--          <el-table-column label="基金资助正文" align="center" prop="fx"/>-->
+<!--          <el-table-column label="引用的参考文献" align="center" prop="cr"/>-->
+<!--          <el-table-column label="引用的参考文献数" align="center" prop="nr"/>-->
+<!--          <el-table-column label="Web of Science被引频次计数" align="center" prop="tc"/>-->
+<!--          <el-table-column label="被引频次总数" align="center" prop="z9"/>-->
+<!--          <el-table-column label="出版商" align="center" prop="pu"/>-->
+<!--          <el-table-column label="出版商所在城市" align="center" prop="pi"/>-->
+<!--          <el-table-column label="出版商地址" align="center" prop="pa"/>-->
+<!--          <el-table-column label="国际标准期刊号 (ISSN)" align="center" prop="sn"/>-->
+<!--          <el-table-column label="国际标准书号 (ISBN)" align="center" prop="bn"/>-->
+<!--          <el-table-column label="来源文献名称缩写" align="center" prop="j9"/>-->
+<!--          <el-table-column label="ISO来源文献名称缩写" align="center" prop="ji"/>-->
+<!--          <el-table-column label="出版日期" align="center" prop="pd"/>-->
+<!--          <el-table-column label="出版年" align="center" prop="py"/>-->
+<!--          <el-table-column label="卷" align="center" prop="vl"/>-->
+<!--          <el-table-column label="期" align="center" prop="kIs"/>-->
+<!--          <el-table-column label="特刊" align="center" prop="si"/>-->
+<!--          <el-table-column label="子辑" align="center" prop="pn"/>-->
+<!--          <el-table-column label="增刊" align="center" prop="su"/>-->
+<!--          <el-table-column label="开始页" align="center" prop="bp"/>-->
+<!--          <el-table-column label="结束页" align="center" prop="ep"/>-->
+<!--          <el-table-column label="文献编号" align="center" prop="ar"/>-->
+<!--          <el-table-column label="数字对象标识符 (DOI)" align="center" prop="di"/>-->
+<!--          <el-table-column label="书籍的数字对象标识符 (DOI)" align="center" prop="d2"/>-->
+<!--          <el-table-column label="页数" align="center" prop="pg"/>-->
+<!--          <el-table-column label="章节数 (Book Citation Index)" align="center" prop="p2"/>-->
+<!--          <el-table-column label="Web of Science类别" align="center" prop="wc"/>-->
+<!--          <el-table-column label="学科类别" align="center" prop="sc"/>-->
+<!--          <el-table-column label="文献传递号" align="center" prop="ga"/>-->
+<!--          <el-table-column label="记录结束" align="center" prop="er"/>-->
+<!--          <el-table-column label="文件结束" align="center" prop="ef"/>-->
+<!--          <el-table-column fixed="right" width="80"  label="操作" align="center" class-name="small-padding fixed-width">-->
+<!--            <template #default="scope">-->
+<!--              <el-tooltip content="修改" placement="top">-->
+<!--                <el-button link type="primary" icon="Edit" @click="handleUpdate(scope.row)"-->
+<!--                           v-hasPermi="['swarehouse:resource:edit']"></el-button>-->
+<!--              </el-tooltip>-->
+<!--              <el-tooltip content="删除" placement="top">-->
+<!--                <el-button link type="primary" icon="Delete" @click="handleDelete(scope.row)"-->
+<!--                           v-hasPermi="['swarehouse:resource:remove']"></el-button>-->
+<!--              </el-tooltip>-->
+<!--              &lt;!&ndash;          <el-tooltip&ndash;&gt;-->
+<!--              &lt;!&ndash;            size="default"&ndash;&gt;-->
+<!--              &lt;!&ndash;            type="text"&ndash;&gt;-->
+<!--              &lt;!&ndash;            icon="el-icon-delete"&ndash;&gt;-->
+<!--              &lt;!&ndash;            @click="handleDelete(scope.row)"&ndash;&gt;-->
+<!--              &lt;!&ndash;            v-hasPermi="['warehouse:resource:remove']"&ndash;&gt;-->
+<!--              &lt;!&ndash;          >删除</el-tooltip>&ndash;&gt;-->
+<!--            </template>-->
+<!--          </el-table-column>-->
         </el-table>
 
         <pagination
@@ -714,6 +741,7 @@ import {
 } from "@/api/warehouse/resource";
 
 import {classTreeSelect} from "@/api/warehouse/class"
+import {onMounted, ref} from "vue";
 
 const router = useRouter();
 const {proxy} = getCurrentInstance();
@@ -721,6 +749,85 @@ const {sys_normal_disable, sys_user_sex} = proxy.useDict("sys_normal_disable", "
 
 const className = ref("");
 const classOptions = ref(undefined);
+
+const cacheName= "resource"
+const defaultColumns= ref([
+  { key: 0, label: `入藏号`,  visible: true ,prop:`ut`},
+  { key: 1, label: `文件名`,  visible: true ,prop:`fn`},
+  { key: 2, label: `版本号`,  visible: true ,prop:`vr`},
+  { key: 3, label: `类型标识符`,  visible: true ,prop:`pt`},
+  { key: 4, label: `作者`,  visible: true ,prop:`au`},
+  { key: 5, label: `作者全名`,  visible: true ,prop:`af`},
+  { key: 6, label: `书籍作者`,  visible: true ,prop:`ba`},
+  { key: 7, label: `团体作者`,  visible: true ,prop:`ca`},
+  { key: 8, label: `书籍团体作者`,  visible: true ,prop:`gp`},
+  { key: 9, label: `编者`,  visible: true ,prop:`be`},
+  { key: 10, label: `文献标题`,  visible: true ,prop:`ti`},
+  { key: 11, label: `出版物名称`,  visible: true ,prop:`so`},
+  { key: 12, label: `丛书标题`,  visible: true ,prop:`se`},
+  { key: 13, label: `丛书副标题`,  visible: true ,prop:`bs`},
+  { key: 14, label: `语种`,  visible: true ,prop:`la`},
+  { key: 15, label: `文献类型`,  visible: true ,prop:`dt`},
+  { key: 16, label: `会议标题`,  visible: true ,prop:`ct`},
+  { key: 17, label: `会议日期`,  visible: true ,prop:`cy`},
+  { key: 18, label: `会议地点`,  visible: true ,prop:`cl`},
+  { key: 19, label: `会议赞助方`,  visible: true ,prop:`sp`},
+  { key: 20, label: `会议主办方`,  visible: true ,prop:`ho`},
+  { key: 21, label: `作者关键词`,  visible: true ,prop:`de`},
+  { key: 22, label: `扩展关键词`,  visible: true ,prop:`kId`},
+  { key: 23, label: `摘要`,  visible: true ,prop:`ab`},
+  { key: 24, label: `作者地址`,  visible: true ,prop:`c1`},
+  { key: 25, label: `通讯作者地址`,  visible: true ,prop:`rp`},
+  { key: 26, label: `电子邮件地址`,  visible: true ,prop:`em`},
+  { key: 27, label: `基金资助机构和授权号`,  visible: true ,prop:`fu`},
+  { key: 28, label: `基金资助正文`,  visible: true ,prop:`fx`},
+  { key: 29, label: `引用的参考文献`,  visible: true ,prop:`cr`},
+  { key: 30, label: `引用的参考文献数`,  visible: true ,prop:`nr`},
+  { key: 31, label: `Web of Science被引频次计数`,  visible: true ,prop:`tc`},
+  { key: 32, label: `被引频次总数`,  visible: true ,prop:`z9`},
+  { key: 33, label: `出版商`,  visible: true ,prop:`pu`},
+  { key: 34, label: `出版商所在城市`,  visible: true ,prop:`pi`},
+  { key: 35, label: `出版商地址`,  visible: true ,prop:`pa`},
+  { key: 36, label: `国际标准期刊号 (ISSN)`,  visible: true ,prop:`sn`},
+  { key: 37, label: `国际标准书号 (ISBN)`,  visible: true ,prop:`bn`},
+  { key: 38, label: `来源文献名称缩写`,visible: true,prop: `j9`},
+  { key: 39, label: `ISO来源文献名称缩写`,visible: true,prop: `ji`},
+  { key: 40, label: `出版日期`,visible: true,prop: `pd`},
+  { key: 41, label: `出版年`,visible: true,prop: `py`},
+  { key: 42, label: `卷`,visible: true,prop: `vl`},
+  { key: 43, label: `期`,visible: true,prop: `kIs`},
+  { key: 44, label: `特刊`,visible: true,prop: `si`},
+  { key: 45, label: `子辑`,visible: true,prop: `pn`},
+  { key: 46, label: `增刊`,visible: true,prop: `su`},
+  { key: 47, label: `开始页`,visible: true,prop: `bp`},
+  { key: 48, label: `结束页`,visible: true,prop: `ep`},
+  { key: 49, label: `文献编号`,visible: true,prop: `ar`},
+  { key: 50, label: `数字对象标识符 (DOI)`,visible: true,prop: `di`},
+  { key: 51, label: `书籍的数字对象标识符 (DOI)`,visible: true,prop: `d2`},
+  { key: 52, label: `页数`,visible: true,prop: `pg`},
+  { key: 53, label: `章节数 (Book Citation Index)`,visible: true,prop: `p2`},
+  { key: 54, label: `Web of Science类别`,visible: true,prop: `wc`},
+  { key: 55, label: `学科类别`,visible: true,prop: `sc`},
+  { key: 56, label: `文献传递号`,visible: true,prop: `ga`},
+  { key: 57, label: `记录结束`,visible: true,prop: `er`},
+  { key: 58, label: `文件结束`,visible: true,prop: `ef`},
+]);
+
+const columns=ref([]);
+onMounted(()=>{
+  // @TODO 优化只存储visable选项
+  // const cacheColumns = localStorage.getItem(cacheName);
+  // if(cacheColumns && JSON.parse(cacheColumns) && JSON.parse(cacheColumns).length){
+  //   console.info("get columns from cache")
+  //   columns.value=JSON.parse(cacheColumns)
+  // }else{
+  //   columns.value=defaultColumns.value
+  //   localStorage.setItem(cacheName, JSON.stringify(defaultColumns.value));d
+  // }
+});
+const visibleColumns = computed(() => {
+  return columns.value.filter(item => item.visible);
+});
 
 
 /** 根据名称筛选部门树 */
@@ -733,7 +840,19 @@ function getClassTree() {
     classOptions.value = response.data
   });
 }
+function initColumns(){
+  const cacheColumns = localStorage.getItem(cacheName);
+  if(cacheColumns && JSON.parse(cacheColumns) && JSON.parse(cacheColumns).length){
+    console.info("get columns from cache")
+    columns.value=JSON.parse(cacheColumns)
+  }else{
+    columns.value=defaultColumns.value
+    localStorage.setItem(cacheName, JSON.stringify(defaultColumns.value));
+  }
+}
 getClassTree();
+initColumns();
+
 </script>
 <script>
 // import {listResource, getResource, delResource, addResource, updateResource} from "@/api/warehouse/resource";
@@ -830,8 +949,24 @@ export default {
       rules: {}
     };
   },
+  computed:{
+
+  },
   created() {
     this.getList();
+    // console.info("created")
+    // var cacheName="resource"
+    // var cache=localStorage.getItem(cacheName)
+    // console.info(cache)
+    // if (cache && JSON.parse(cache) && JSON.parse(cache).length)
+    // {
+    //   console.info("get cache")
+    //   this.columns.value = JSON.parse(localStorage.getItem(cacheName))
+    // } else
+    // {
+    //   //this.getColumns();
+    //   localStorage.setItem(this.cacheName, JSON.stringify(this.columns))
+    // }
   },
   methods: {
     /** 查询资源列表列表 */
@@ -842,9 +977,8 @@ export default {
         this.total = response.total;
         this.loading = false;
       });
-
-
     },
+
     // 取消按钮
     cancel() {
       this.open = false;
