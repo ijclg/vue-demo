@@ -36,9 +36,9 @@ export function updateResource(data) {
 }
 
 // 删除资源列表
-export function delResource(id) {
+export function delResource(bd) {
   return request({
-    url: '/warehouse/resource/' + id,
+    url: '/warehouse/resource/' + bd,
     method: 'delete'
   })
 }

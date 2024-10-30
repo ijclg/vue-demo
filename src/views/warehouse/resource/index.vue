@@ -28,38 +28,6 @@
       <el-col :span="20" :xs="24">
         <el-form :model="queryParams" ref="queryForm" size="default" :inline="true" v-show="showSearch"
                  label-width="68px">
-          <!--      <el-form-item label="入藏号" prop="ut">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.ut"-->
-          <!--          placeholder="请输入入藏号"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="文件名" prop="fn">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.fn"-->
-          <!--          placeholder="请输入文件名"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="版本号" prop="vr">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.vr"-->
-          <!--          placeholder="请输入版本号"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="类型标识符" prop="pt">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.pt"-->
-          <!--          placeholder="请输入类型标识符"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
           <el-form-item label="书籍作者" prop="ba">
             <el-input
                 v-model="queryParams.ba"
@@ -68,302 +36,25 @@
                 @keyup.enter.native="handleQuery"
             />
           </el-form-item>
-          <!--      <el-form-item label="书籍团体作者" prop="gp">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.gp"-->
-          <!--          placeholder="请输入书籍团体作者"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="编者" prop="be">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.be"-->
-          <!--          placeholder="请输入编者"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="丛书标题" prop="se">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.se"-->
-          <!--          placeholder="请输入丛书标题"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="丛书副标题" prop="bs">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.bs"-->
-          <!--          placeholder="请输入丛书副标题"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="语种" prop="la">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.la"-->
-          <!--          placeholder="请输入语种"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="文献类型" prop="dt">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.dt"-->
-          <!--          placeholder="请输入文献类型"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="会议日期" prop="cy">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.cy"-->
-          <!--          placeholder="请输入会议日期"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="会议地点" prop="cl">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.cl"-->
-          <!--          placeholder="请输入会议地点"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="会议主办方" prop="ho">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.ho"-->
-          <!--          placeholder="请输入会议主办方"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="引用的参考文献数" prop="nr">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.nr"-->
-          <!--          placeholder="请输入引用的参考文献数"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="Web of Science被引频次计数" prop="tc">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.tc"-->
-          <!--          placeholder="请输入Web of Science被引频次计数"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="被引频次总数" prop="z9">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.z9"-->
-          <!--          placeholder="请输入被引频次总数"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="出版商" prop="pu">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.pu"-->
-          <!--          placeholder="请输入出版商"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="出版商所在城市" prop="pi">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.pi"-->
-          <!--          placeholder="请输入出版商所在城市"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="国际标准期刊号 (ISSN)" prop="sn">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.sn"-->
-          <!--          placeholder="请输入国际标准期刊号 (ISSN)"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-<!--          <el-form-item label="国际标准书号 (ISBN)" prop="bn">-->
-<!--            <el-input-->
-<!--                v-model="queryParams.bn"-->
-<!--                placeholder="请输入国际标准书号 (ISBN)"-->
-<!--                clearable-->
-<!--                @keyup.enter.native="handleQuery"-->
-<!--            />-->
-<!--          </el-form-item>-->
-          <!--      <el-form-item label="来源文献名称缩写" prop="j9">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.j9"-->
-          <!--          placeholder="请输入来源文献名称缩写"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="ISO来源文献名称缩写" prop="ji">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.ji"-->
-          <!--          placeholder="请输入ISO来源文献名称缩写"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="出版日期" prop="pd">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.pd"-->
-          <!--          placeholder="请输入出版日期"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="出版年" prop="py">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.py"-->
-          <!--          placeholder="请输入出版年"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="卷" prop="vl">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.vl"-->
-          <!--          placeholder="请输入卷"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="期" prop="kIs">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.kIs"-->
-          <!--          placeholder="请输入期"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="特刊" prop="si">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.si"-->
-          <!--          placeholder="请输入特刊"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="子辑" prop="pn">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.pn"-->
-          <!--          placeholder="请输入子辑"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="增刊" prop="su">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.su"-->
-          <!--          placeholder="请输入增刊"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="开始页" prop="bp">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.bp"-->
-          <!--          placeholder="请输入开始页"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="结束页" prop="ep">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.ep"-->
-          <!--          placeholder="请输入结束页"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="文献编号" prop="ar">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.ar"-->
-          <!--          placeholder="请输入文献编号"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="数字对象标识符 (DOI)" prop="di">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.di"-->
-          <!--          placeholder="请输入数字对象标识符 (DOI)"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="书籍的数字对象标识符 (DOI)" prop="d2">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.d2"-->
-          <!--          placeholder="请输入书籍的数字对象标识符 (DOI)"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="页数" prop="pg">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.pg"-->
-          <!--          placeholder="请输入页数"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="章节数 (Book Citation Index)" prop="p2">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.p2"-->
-          <!--          placeholder="请输入章节数 (Book Citation Index)"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="Web of Science类别" prop="wc">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.wc"-->
-          <!--          placeholder="请输入Web of Science类别"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="学科类别" prop="sc">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.sc"-->
-          <!--          placeholder="请输入学科类别"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="文献传递号" prop="ga">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.ga"-->
-          <!--          placeholder="请输入文献传递号"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="记录结束" prop="er">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.er"-->
-          <!--          placeholder="请输入记录结束"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
-          <!--      <el-form-item label="文件结束" prop="ef">-->
-          <!--        <el-input-->
-          <!--          v-model="queryParams.ef"-->
-          <!--          placeholder="请输入文件结束"-->
-          <!--          clearable-->
-          <!--          @keyup.enter.native="handleQuery"-->
-          <!--        />-->
-          <!--      </el-form-item>-->
+<!--          <el-form-item label="修改时间" prop="update_time">-->
+          <el-form-item label="修改时间" style="width: 308px">
+            <el-date-picker clearable
+                            v-model="dateRange"
+                            type="daterange"
+                            value-format="YYYY-MM-DD"
+                            range-separator="-"
+                            start-placeholder="开始日期"
+                            end-placeholder="结束日期">
+            </el-date-picker>
+          </el-form-item>
+          <el-form-item label="修改人" prop="update_by">
+            <el-input
+                v-model="queryParams.update_by"
+                placeholder="请输入修改人"
+                clearable
+                @keyup.enter.native="handleQuery"
+            />
+          </el-form-item>
           <el-form-item>
             <el-button type="primary" icon="Search" size="default" @click="handleQuery">搜索</el-button>
             <el-button icon="Refresh" size="default" @click="resetQuery">重置</el-button>
@@ -423,21 +114,24 @@
         <el-table style="width: 100%"  v-loading="loading" :data="resourceList" @selection-change="handleSelectionChange" >
           <el-table-column fixed type="selection" width="45" align="center" />
           <el-table-column
-            v-for="(column,index) in visibleColumns"
-            :key="index"
-            :label="column.label"
-            align="center"
-            :prop="column.prop"
-          ></el-table-column>
+              v-for="(column, index) in visibleNormalColumns"
+              :key="index"
+              :label="column.label"
+              align="center"
+              :prop="column.prop"
+              :formatter="column.needFormat? timeFormat:null"
+          >
+          </el-table-column>
+
           <el-table-column fixed="right" width="80"  label="操作" align="center" class-name="small-padding fixed-width">
             <template #default="scope">
               <el-tooltip content="修改" placement="top">
                 <el-button link type="primary" icon="Edit" @click="handleUpdate(scope.row)"
-                           v-hasPermi="['swarehouse:resource:edit']"></el-button>
+                           v-hasPermi="['warehouse:resource:edit']"></el-button>
               </el-tooltip>
               <el-tooltip content="删除" placement="top">
                 <el-button link type="primary" icon="Delete" @click="handleDelete(scope.row)"
-                           v-hasPermi="['swarehouse:resource:remove']"></el-button>
+                           v-hasPermi="['warehouse:resource:remove']"></el-button>
               </el-tooltip>
               <!--          <el-tooltip-->
               <!--            size="default"-->
@@ -542,7 +236,10 @@
 
     <!-- 添加或修改资源列表对话框 -->
     <el-dialog :title="title" v-model="open" width="500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="80px">
+      <el-form ref="paperFormRef" :model="form" :rules="rules" label-width="80px">
+<!--        <el-form-item label="批次号" prop="id">-->
+<!--          <el-input v-model="form.id" placeholder="请输入批次号"/>-->
+<!--        </el-form-item>-->
         <el-form-item label="入藏号" prop="ut">
           <el-input v-model="form.ut" placeholder="请输入入藏号"/>
         </el-form-item>
@@ -741,17 +438,17 @@ import {
 } from "@/api/warehouse/resource";
 
 import {classTreeSelect} from "@/api/warehouse/class"
-import {onMounted, ref} from "vue";
-
+import {onMounted, reactive, ref, toRefs} from "vue";
+import {parseTime} from "../../../utils/ruoyi";
 const router = useRouter();
-const {proxy} = getCurrentInstance();
-const {sys_normal_disable, sys_user_sex} = proxy.useDict("sys_normal_disable", "sys_user_sex");
+const { proxy } = getCurrentInstance();
 
 const className = ref("");
 const classOptions = ref(undefined);
 
 const cacheName= "resource"
 const defaultColumns= ref([
+  { key: 63, label: `ID`,  visible: true , prop:`id`},
   { key: 0, label: `入藏号`,  visible: true ,prop:`ut`},
   { key: 1, label: `文件名`,  visible: true ,prop:`fn`},
   { key: 2, label: `版本号`,  visible: true ,prop:`vr`},
@@ -811,9 +508,97 @@ const defaultColumns= ref([
   { key: 56, label: `文献传递号`,visible: true,prop: `ga`},
   { key: 57, label: `记录结束`,visible: true,prop: `er`},
   { key: 58, label: `文件结束`,visible: true,prop: `ef`},
+  { key: 59, label: `创建人`,visible: true,prop: `createBy`},
+  { key: 60, label: `创建时间`,visible: true,prop: `createTime`, needFormat: true},
+  { key: 61, label: `修改人`,visible: true,prop: `updateBy`},
+  { key: 62, label: `修改时间`,visible: true,prop: `updateTime`,needFormat: true}
 ]);
 
 const columns=ref([]);
+
+const loading = ref(true);
+const ids = ref([]);
+const single=ref(true);
+const multiple=ref(true);
+const showSearch=ref(true) ;
+const total=ref(0);
+const resourceList=ref([]);
+const title=ref("");
+const open=ref(false);
+const dateRange=ref([]);
+const data = reactive({
+  form:{},
+  queryParams: {
+    pageNum: 1,
+    pageSize: 10,
+    id: null,
+    ut: null,
+    fn: null,
+    vr: null,
+    pt: null,
+    au: null,
+    af: null,
+    ba: null,
+    ca: null,
+    gp: null,
+    be: null,
+    ti: null,
+    so: null,
+    se: null,
+    bs: null,
+    la: null,
+    dt: null,
+    ct: null,
+    cy: null,
+    cl: null,
+    sp: null,
+    ho: null,
+    de: null,
+    kId: null,
+    ab: null,
+    c1: null,
+    rp: null,
+    em: null,
+    fu: null,
+    fx: null,
+    cr: null,
+    nr: null,
+    tc: null,
+    z9: null,
+    pu: null,
+    pi: null,
+    pa: null,
+    sn: null,
+    bn: null,
+    j9: null,
+    ji: null,
+    pd: null,
+    py: null,
+    vl: null,
+    kIs: null,
+    si: null,
+    pn: null,
+    su: null,
+    bp: null,
+    ep: null,
+    ar: null,
+    di: null,
+    d2: null,
+    pg: null,
+    p2: null,
+    wc: null,
+    sc: null,
+    ga: null,
+    er: null,
+    ef: null,
+    update_time:null,
+    update_by:null
+  },
+  rules:{}
+
+})
+const {queryParams, form,rules} = toRefs(data)
+
 onMounted(()=>{
   // @TODO 优化只存储visable选项
   // const cacheColumns = localStorage.getItem(cacheName);
@@ -825,16 +610,22 @@ onMounted(()=>{
   //   localStorage.setItem(cacheName, JSON.stringify(defaultColumns.value));d
   // }
 });
-const visibleColumns = computed(() => {
+const visibleNormalColumns = computed(() => {
   return columns.value.filter(item => item.visible);
 });
-
+const timeFormat = (row, column, cellValue, index) => {
+  return parseTime(row[column.property])
+};
 
 /** 根据名称筛选部门树 */
 watch(className, val => {
   proxy.$refs["classTreeRef"].filter(val);
 });
-
+/** 通过条件过滤节点  */
+const filterNode = (value, data) => {
+  if (!value) return true;
+  return data.label.indexOf(value) !== -1;
+};
 function getClassTree() {
   classTreeSelect().then(response => {
     classOptions.value = response.data
@@ -850,280 +641,157 @@ function initColumns(){
     localStorage.setItem(cacheName, JSON.stringify(defaultColumns.value));
   }
 }
+function getList() {
+  loading.value = true;
+  listResource(proxy.addDateRange(queryParams.value, dateRange.value)).then(response => {
+    resourceList.value = response.rows;
+    total.value = response.total;
+    loading.value = false;
+  });
+}
+function cancel() {
+  open.value = false;
+  reset();
+}
+function reset() {
+  form.value = {
+    id: null,
+    ut: null,
+    fn: null,
+    vr: null,
+    pt: null,
+    au: null,
+    af: null,
+    ba: null,
+    ca: null,
+    gp: null,
+    be: null,
+    ti: null,
+    so: null,
+    se: null,
+    bs: null,
+    la: null,
+    dt: null,
+    ct: null,
+    cy: null,
+    cl: null,
+    sp: null,
+    ho: null,
+    de: null,
+    kId: null,
+    ab: null,
+    c1: null,
+    rp: null,
+    em: null,
+    fu: null,
+    fx: null,
+    cr: null,
+    nr: null,
+    tc: null,
+    z9: null,
+    pu: null,
+    pi: null,
+    pa: null,
+    sn: null,
+    bn: null,
+    j9: null,
+    ji: null,
+    pd: null,
+    py: null,
+    vl: null,
+    kIs: null,
+    si: null,
+    pn: null,
+    su: null,
+    bp: null,
+    ep: null,
+    ar: null,
+    di: null,
+    d2: null,
+    pg: null,
+    p2: null,
+    wc: null,
+    sc: null,
+    ga: null,
+    er: null,
+    ef: null
+  };
+  proxy.resetForm("paperFormRef");
+}
+function handleQuery() {
+  queryParams.value.pageNum = 1;
+  getList();
+}
+function resetQuery() {
+  dateRange.value = [];
+  proxy.resetForm("queryForm")
+  proxy.$refs.classTreeRef.setCurrentKey(null);
+  handleQuery();
+}
+
+function handleNodeClick(data) {
+  queryParams.value.classId = data.id;
+  handleQuery();
+}
+
+function handleSelectionChange(selection) {
+  ids.value = selection.map(item => item.id)
+  single.value = selection.length !== 1
+  multiple.value = !selection.length
+}
+
+function handleAdd() {
+  reset();
+  title.value = "添加资源列表";
+  open.value = true;
+}
+function handleUpdate(row) {
+  reset()
+  const id = row.id || ids.value
+  getResource(id).then(response => {
+    form.value = response.data;
+    open.value = true;
+    title.value = "修改资源列表";
+  });
+}
+
+function submitForm() {
+  proxy.$refs["paperFormRef"].validate((valid) => {
+    if (valid) {
+      if(form.value.id!=null){
+        updateResource(form.value).then(response => {
+          proxy.$modal.msgSuccess("修改成功");
+          open.value = false;
+          getList();
+        });
+    }else {
+      addResource(form.value).then(response => {
+        proxy.$modal.msgSuccess("新增成功");
+        open.value = false;
+        getList()
+
+      });
+    }
+  }
+  });
+}
+
+function handleDelete(row) {
+  const id = row.id || ids.value;
+  proxy.$modal.confirm('是否确认删除资源列表编号为"' + id + '"的数据项？').then(function() {
+    return delResource(id);
+  }).then(() => {
+    getList();
+    proxy.$modal.msgSuccess("删除成功");
+  }).catch(() => {});
+}
+function handleExport() {
+  proxy.download("warehouse/resource/export", {
+    ...queryParams.value
+  }, `resource_${new Date().getTime()}.xlsx`);
+}
+getList();
 getClassTree();
 initColumns();
 
-</script>
-<script>
-// import {listResource, getResource, delResource, addResource, updateResource} from "@/api/warehouse/resource";
-
-export default {
-  name: "Resource",
-  data() {
-    return {
-      // 遮罩层
-      loading: true,
-      // 选中数组
-      ids: [],
-      // 非单个禁用
-      single: true,
-      // 非多个禁用
-      multiple: true,
-      // 显示搜索条件
-      showSearch: true,
-      // 总条数
-      total: 0,
-      // 资源列表表格数据
-      resourceList: [],
-      // 弹出层标题
-      title: "",
-      // 是否显示弹出层
-      open: false,
-      // 查询参数
-      queryParams: {
-        pageNum: 1,
-        pageSize: 10,
-        ut: null,
-        fn: null,
-        vr: null,
-        pt: null,
-        au: null,
-        af: null,
-        ba: null,
-        ca: null,
-        gp: null,
-        be: null,
-        ti: null,
-        so: null,
-        se: null,
-        bs: null,
-        la: null,
-        dt: null,
-        ct: null,
-        cy: null,
-        cl: null,
-        sp: null,
-        ho: null,
-        de: null,
-        kId: null,
-        ab: null,
-        c1: null,
-        rp: null,
-        em: null,
-        fu: null,
-        fx: null,
-        cr: null,
-        nr: null,
-        tc: null,
-        z9: null,
-        pu: null,
-        pi: null,
-        pa: null,
-        sn: null,
-        bn: null,
-        j9: null,
-        ji: null,
-        pd: null,
-        py: null,
-        vl: null,
-        kIs: null,
-        si: null,
-        pn: null,
-        su: null,
-        bp: null,
-        ep: null,
-        ar: null,
-        di: null,
-        d2: null,
-        pg: null,
-        p2: null,
-        wc: null,
-        sc: null,
-        ga: null,
-        er: null,
-        ef: null
-      },
-      // 表单参数
-      form: {},
-      // 表单校验
-      rules: {}
-    };
-  },
-  computed:{
-
-  },
-  created() {
-    this.getList();
-    // console.info("created")
-    // var cacheName="resource"
-    // var cache=localStorage.getItem(cacheName)
-    // console.info(cache)
-    // if (cache && JSON.parse(cache) && JSON.parse(cache).length)
-    // {
-    //   console.info("get cache")
-    //   this.columns.value = JSON.parse(localStorage.getItem(cacheName))
-    // } else
-    // {
-    //   //this.getColumns();
-    //   localStorage.setItem(this.cacheName, JSON.stringify(this.columns))
-    // }
-  },
-  methods: {
-    /** 查询资源列表列表 */
-    getList() {
-      this.loading = true;
-      listResource(this.queryParams).then(response => {
-        this.resourceList = response.rows;
-        this.total = response.total;
-        this.loading = false;
-      });
-    },
-
-    // 取消按钮
-    cancel() {
-      this.open = false;
-      this.reset();
-    },
-    // 表单重置
-    reset() {
-      this.form = {
-        id: null,
-        ut: null,
-        fn: null,
-        vr: null,
-        pt: null,
-        au: null,
-        af: null,
-        ba: null,
-        ca: null,
-        gp: null,
-        be: null,
-        ti: null,
-        so: null,
-        se: null,
-        bs: null,
-        la: null,
-        dt: null,
-        ct: null,
-        cy: null,
-        cl: null,
-        sp: null,
-        ho: null,
-        de: null,
-        kId: null,
-        ab: null,
-        c1: null,
-        rp: null,
-        em: null,
-        fu: null,
-        fx: null,
-        cr: null,
-        nr: null,
-        tc: null,
-        z9: null,
-        pu: null,
-        pi: null,
-        pa: null,
-        sn: null,
-        bn: null,
-        j9: null,
-        ji: null,
-        pd: null,
-        py: null,
-        vl: null,
-        kIs: null,
-        si: null,
-        pn: null,
-        su: null,
-        bp: null,
-        ep: null,
-        ar: null,
-        di: null,
-        d2: null,
-        pg: null,
-        p2: null,
-        wc: null,
-        sc: null,
-        ga: null,
-        er: null,
-        ef: null
-      };
-      this.resetForm("form");
-    },
-    /** 搜索按钮操作 */
-    handleQuery() {
-      this.queryParams.pageNum = 1;
-      this.getList();
-    },
-    /** 重置按钮操作 */
-    resetQuery() {
-      this.resetForm("queryForm");
-      proxy.$refs.classTreeRef.setCurrentKey(null);
-      this.handleQuery();
-    },
-    handleNodeClick(data) {
-      this.queryParams.classId = data.id;
-      this.handleQuery();
-    },
-    // 多选框选中数据
-    handleSelectionChange(selection) {
-      this.ids = selection.map(item => item.id)
-      this.single = selection.length !== 1
-      this.multiple = !selection.length
-    },
-    /** 新增按钮操作 */
-    handleAdd() {
-      this.reset();
-      this.open = true;
-      this.title = "添加资源列表";
-    },
-    /** 修改按钮操作 */
-    handleUpdate(row) {
-      this.reset();
-      const id = row.id || this.ids
-      getResource(id).then(response => {
-        this.form = response.data;
-        this.open = true;
-        this.title = "修改资源列表";
-      });
-    },
-    /** 提交按钮 */
-    submitForm() {
-      this.$refs["form"].validate(valid => {
-        if (valid) {
-          if (this.form.id != null) {
-            updateResource(this.form).then(response => {
-              this.$modal.msgSuccess("修改成功");
-              this.open = false;
-              this.getList();
-            });
-          } else {
-            addResource(this.form).then(response => {
-              this.$modal.msgSuccess("新增成功");
-              this.open = false;
-              this.getList();
-            });
-          }
-        }
-      });
-    },
-    /** 删除按钮操作 */
-    handleDelete(row) {
-      const ids = row.id || this.ids;
-      this.$modal.confirm('是否确认删除资源列表编号为"' + ids + '"的数据项？').then(function () {
-        return delResource(ids);
-      }).then(() => {
-        this.getList();
-        this.$modal.msgSuccess("删除成功");
-      }).catch(() => {
-      });
-    },
-    /** 导出按钮操作 */
-    handleExport() {
-      this.download('warehouse/resource/export', {
-        ...this.queryParams
-      }, `resource_${new Date().getTime()}.xlsx`)
-    }
-  }
-};
 </script>
