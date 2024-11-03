@@ -9,10 +9,11 @@ export function listResource(query) {
   })
 }
 
+
 // 查询资源列表详细
-export function getResource(id) {
+export function getResource(id, classId=201) {
   return request({
-    url: '/warehouse/resource/' + id,
+    url: '/warehouse/resource/' + classId+'/'+ id,
     method: 'get'
   })
 }
@@ -36,9 +37,9 @@ export function updateResource(data) {
 }
 
 // 删除资源列表
-export function delResource(bd) {
+export function delResource(id, classId=201) {
   return request({
-    url: '/warehouse/resource/' + bd,
+    url: '/warehouse/resource/'+classId+'/' + id,
     method: 'delete'
   })
 }
